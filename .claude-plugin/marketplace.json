@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Bridge Claude Code to Google's Gemini CLI for analyze / research / second-opinion / multimodal",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "gemini-bridge",
       "source": ".",
-      "description": "Read-only bridge: analyze (1M tokens), research (Google-grounded), second-opinion (blind), multimodal (image/PDF)"
+      "description": "Read-only bridge to Gemini CLI, exposed as 4 standalone skills: gemini-bridge:analyze, gemini-bridge:research, gemini-bridge:second-opinion, gemini-bridge:multimodal"
     }
   ]
 }
