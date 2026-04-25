@@ -20,3 +20,8 @@ htmlcov/
 
 # Skill runtime output (eval runs are reproduced locally; not source)
 evals/results/
+
+# Local working / scratch files
+message.md
+*.tmp.md
+.release-notes-*.md
