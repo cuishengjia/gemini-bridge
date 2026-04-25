@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.coverage
+coverage.json
+htmlcov/
+*.egg-info/
+
+# IDEs
+.idea/
+.vscode/
+
+# Local Claude Code state (per-machine, never share)
+.claude/settings.local.json
+
+# Skill runtime output (eval runs are reproduced locally; not source)
+.claude/skills/ask-gemini-cli/evals/results/

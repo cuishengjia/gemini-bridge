@@ -1,0 +1,307 @@
+#!/usr/bin/env python3
+"""ask-gemini: Claude Code → Gemini CLI bridge.
+
+Dispatches one of four modes (analyze / research / second-opinion / multimodal),
+runs preflight checks, drives the fallback chain, and prints a single JSON
+envelope (schema v1) to stdout.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+from typing import Any, Optional
+
+SKILL_DIR = Path(__file__).resolve().parent.parent
+if str(SKILL_DIR) not in sys.path:
+    sys.path.insert(0, str(SKILL_DIR))
+
+from lib import audit_log, envelope, fallback, persist, preflight  # noqa: E402
+
+
+PROMPTS_DIR = SKILL_DIR / "prompts"
+
+
+def _read_prompt_template(name: str) -> str:
+    return (PROMPTS_DIR / name).read_text(encoding="utf-8")
+
+
+def _read_artefact(path: Path) -> str:
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
+def _render(template: str, **values: Optional[str]) -> str:
+    """Substitute `{name}` placeholders safely, without recursing into user values.
+
+    Three passes avoid the two str.format() footguns in one shot:
+      1. Replace each `{name}` placeholder with a unique sentinel string that
+         cannot appear anywhere else (NUL bytes bracketing the name).
+      2. Collapse the template's own `{{` / `}}` escapes back to `{` / `}`.
+         User content is still sitting behind the sentinels, so adjacent
+         braces in JSON/TS/etc. are NOT touched.
+      3. Swap each sentinel for its user-provided value verbatim.
+
+    This sidesteps `str.format`'s recursion-free substitution semantics
+    (which would otherwise error on literal `{...}` in the *template*) while
+    guaranteeing user content is never mutated.
+    """
+    rendered = template
+    sentinels: dict[str, str] = {}
+    for name, val in values.items():
+        sentinel = f"\x00@@{name}@@\x00"
+        sentinels[sentinel] = "" if val is None else val
+        rendered = rendered.replace("{" + name + "}", sentinel)
+    rendered = rendered.replace("{{", "{").replace("}}", "}")
+    for sentinel, val in sentinels.items():
+        rendered = rendered.replace(sentinel, val)
+    return rendered
+
+
+def _compose_analyze(args: argparse.Namespace) -> tuple[str, Path]:
+    tpl = _read_prompt_template("analyze.md")
+    target = Path(args.target_dir).resolve()
+    prompt = _render(tpl, target_dir=str(target), user_prompt=args.prompt)
+    return prompt, target
+
+
+def _compose_research(args: argparse.Namespace) -> tuple[str, Optional[Path]]:
+    tpl = _read_prompt_template("research.md")
+    target = Path(args.target_dir).resolve() if args.target_dir else None
+    context_block = (
+        f"Additional context: repository at {target} may be referenced if helpful."
+        if target else ""
+    )
+    prompt = _render(tpl, user_query=args.query, optional_context_block=context_block)
+    return prompt, target
+
+
+def _compose_second_opinion(args: argparse.Namespace) -> tuple[str, Optional[Path]]:
+    tpl = _read_prompt_template("second_opinion.md")
+    artefact = _read_artefact(Path(args.artefact_file))
+    prompt = _render(tpl, task=args.task, artefact=artefact)
+    return prompt, None
+
+
+def _compose_multimodal(args: argparse.Namespace) -> tuple[str, Path]:
+    """Multimodal composer.
+
+    Gemini CLI needs the media file inside its `--include-directories` sandbox
+    *and* an `@<absolute-path>` reference in the prompt for the model to
+    actually load the bytes. We include the media file's parent directory
+    (not the file itself — the flag expects a directory) and prefix the
+    user's prompt with the `@` reference.
+    """
+    tpl = _read_prompt_template("multimodal.md")
+    media_path = Path(args.image or args.pdf).resolve()
+    parent = media_path.parent
+    user_prompt = f"@{media_path}\n\n{args.prompt}"
+    prompt = _render(tpl, user_prompt=user_prompt)
+    return prompt, parent
+
+
+def _parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        prog="ask-gemini",
+        description="Claude Code → Gemini CLI bridge (4 modes, read-only).",
+    )
+    p.add_argument("--mode", required=True,
+                   choices=["analyze", "research", "second-opinion", "multimodal"])
+    p.add_argument("--target-dir", type=str, default=None,
+                   help="Directory to include as context (analyze/research).")
+    p.add_argument("--prompt", type=str, default=None,
+                   help="Free-form prompt (analyze/multimodal).")
+    p.add_argument("--query", type=str, default=None,
+                   help="Research question (research mode).")
+    p.add_argument("--task", type=str, default=None,
+                   help="Problem statement (second-opinion, blind).")
+    p.add_argument("--artefact-file", type=str, default=None,
+                   help="Path to plan/patch file (second-opinion).")
+    p.add_argument("--image", type=str, default=None,
+                   help="Image path (multimodal).")
+    p.add_argument("--pdf", type=str, default=None,
+                   help="PDF path (multimodal).")
+    p.add_argument("--persist-to", type=str, default=None,
+                   help="Save response to this .md path for cross-session reuse.")
+    return p.parse_args(argv)
+
+
+def _validate(args: argparse.Namespace) -> Optional[str]:
+    if args.mode == "analyze":
+        if not args.target_dir or not args.prompt:
+            return "analyze requires --target-dir and --prompt"
+    elif args.mode == "research":
+        if not args.query:
+            return "research requires --query"
+    elif args.mode == "second-opinion":
+        if not args.task or not args.artefact_file:
+            return "second-opinion requires --task and --artefact-file"
+    elif args.mode == "multimodal":
+        if not (args.image or args.pdf):
+            return "multimodal requires --image or --pdf"
+        if args.image and args.pdf:
+            return "multimodal: pass either --image or --pdf, not both"
+        if not args.prompt:
+            return "multimodal requires --prompt"
+    return None
+
+
+def _compose(args: argparse.Namespace) -> tuple[str, Optional[Path]]:
+    if args.mode == "analyze":
+        return _compose_analyze(args)
+    if args.mode == "research":
+        return _compose_research(args)
+    if args.mode == "second-opinion":
+        return _compose_second_opinion(args)
+    if args.mode == "multimodal":
+        return _compose_multimodal(args)
+    raise ValueError(f"unknown mode: {args.mode}")
+
+
+def _audit_payload(env: dict[str, Any]) -> dict[str, Any]:
+    """Return the envelope shape that should be written to the audit log.
+
+    By default this is the full envelope (the wrapper's response history is
+    the same content the caller already received and can be useful for
+    debugging quota / parsing issues across runs).
+
+    With `ASK_GEMINI_NO_LOG_RESPONSE=1`, redact the model output and tool
+    calls so the audit log contains only metadata (mode / model_used /
+    fallback_triggered / attempts / stats / errors / warnings). The stdout
+    envelope returned to the caller is unaffected.
+    """
+    if os.environ.get("ASK_GEMINI_NO_LOG_RESPONSE") != "1":
+        return env
+    redacted = dict(env)
+    if "response" in redacted:
+        redacted["response"] = "<redacted by ASK_GEMINI_NO_LOG_RESPONSE>"
+    if "tool_calls" in redacted:
+        redacted["tool_calls"] = []
+    return redacted
+
+
+def _emit(env: dict[str, Any]) -> None:
+    """Write envelope to stdout; surface audit-log failures without swallowing.
+
+    audit_log.append returns None on success or a short reason string on
+    failure. If the invocation succeeded (`ok=True`), any audit failure is
+    appended to `warnings[]` so the caller can see it. Otherwise (error
+    envelope, or malformed) we fall back to stderr so the signal isn't lost.
+    """
+    reason = audit_log.append(_audit_payload(env))
+    if reason:
+        note = f"audit log write skipped: {reason}"
+        if env.get("ok") is True and isinstance(env.get("warnings"), list):
+            env["warnings"].append(note)
+        else:
+            print(note, file=sys.stderr)
+    json.dump(env, sys.stdout, ensure_ascii=False)
+    sys.stdout.write("\n")
+
+
+def _quality_warnings(mode: str, chain: "fallback.ChainResult") -> list[str]:
+    """Derive envelope warnings from parsed output quality signals.
+
+    Currently emits:
+      * `model_emitted_thought_events` — gemini-3-pro-preview tried to stream
+        chain-of-thought tokens that the parser dropped (see q082 incident).
+      * `zero_url_response` — research mode returned a response with no URLs,
+        which almost always means the citation contract in prompts/research.md
+        was ignored (pilot v1: 10/14 ok envelopes had zero URLs).
+    """
+    warns: list[str] = []
+    if chain.parsed is None:
+        return warns
+    if getattr(chain.parsed, "thought_events_dropped", 0) > 0:
+        warns.append("model_emitted_thought_events")
+    if mode == "research":
+        resp = chain.parsed.response or ""
+        if "http://" not in resp and "https://" not in resp:
+            warns.append("zero_url_response")
+    return warns
+
+
+def main(argv: Optional[list[str]] = None) -> int:
+    args = _parse_args(argv)
+    err = _validate(args)
+    if err:
+        env = envelope.build_error(
+            mode=args.mode, kind="bad_input", message=err,
+            setup_hint="Check the mode's required flags in SKILL.md.",
+        )
+        _emit(env)
+        return 2
+
+    try:
+        prompt, target_dir = _compose(args)
+    except FileNotFoundError as e:
+        env = envelope.build_error(
+            mode=args.mode, kind="bad_input",
+            message=f"file not found: {e.filename}",
+            setup_hint="Verify the path exists and is readable.",
+        )
+        _emit(env)
+        return 2
+
+    pre = preflight.run_preflight(
+        target_dir=target_dir,
+        artefact_file=Path(args.artefact_file) if args.artefact_file else None,
+        image=Path(args.image) if args.image else None,
+        pdf=Path(args.pdf) if args.pdf else None,
+    )
+    if not pre.ok:
+        env = envelope.build_error(
+            mode=args.mode, kind=pre.error_kind or "config",
+            message=pre.error_message, setup_hint=pre.setup_hint,
+        )
+        _emit(env)
+        return 3
+
+    chain = fallback.run_with_fallback(prompt=prompt, include_dir=target_dir)
+
+    if chain.success:
+        persisted: Optional[str] = None
+        if args.persist_to and chain.parsed:
+            try:
+                persisted = persist.persist_response(
+                    target=Path(args.persist_to),
+                    mode=args.mode, prompt=prompt,
+                    response=chain.parsed.response,
+                    model_used=chain.model_used or "",
+                    stats=chain.parsed.stats,
+                )
+            except ValueError as e:
+                env = envelope.build_error(
+                    mode=args.mode, kind="bad_input",
+                    message=f"--persist-to rejected: {e}",
+                    setup_hint="Use a .md path under $HOME or the current working directory.",
+                )
+                _emit(env)
+                return 2
+        warnings_list = list(pre.warnings or [])
+        warnings_list.extend(_quality_warnings(args.mode, chain))
+        env = envelope.build_success(
+            mode=args.mode, chain_result=chain,
+            persisted_to=persisted,
+            warnings=warnings_list,
+        )
+        _emit(env)
+        return 0
+
+    env = envelope.build_error(
+        mode=args.mode,
+        kind=chain.final_kind or "general",
+        message=f"gemini chain exhausted: {chain.final_kind}",
+        setup_hint=chain.final_setup_hint,
+        exit_code=chain.final_exit_code,
+        stderr_tail=chain.final_stderr_tail,
+        attempts=chain.attempts,
+    )
+    _emit(env)
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

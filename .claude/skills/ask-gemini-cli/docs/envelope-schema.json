@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ask-gemini-cli/envelope-schema-v1.json",
+  "title": "ask-gemini-cli envelope (v1, frozen)",
+  "description": "JSON envelope emitted by bin/ask-gemini. Either a success (ok=true) or an error (ok=false).",
+  "type": "object",
+  "required": ["ok", "mode"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "mode": {
+      "type": "string",
+      "enum": ["analyze", "research", "second-opinion", "multimodal"]
+    }
+  },
+  "oneOf": [
+    {
+      "title": "success",
+      "type": "object",
+      "required": [
+        "ok",
+        "mode",
+        "model_used",
+        "fallback_triggered",
+        "attempts",
+        "response",
+        "stats",
+        "tool_calls",
+        "persisted_to",
+        "warnings"
+      ],
+      "properties": {
+        "ok": {"const": true},
+        "mode": {"type": "string"},
+        "model_used": {"type": "string"},
+        "fallback_triggered": {"type": "boolean"},
+        "attempts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attempt"}
+        },
+        "response": {"type": "string"},
+        "stats": {"$ref": "#/$defs/stats"},
+        "tool_calls": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/toolCall"}
+        },
+        "persisted_to": {"type": ["string", "null"]},
+        "warnings": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": true
+    },
+    {
+      "title": "error",
+      "type": "object",
+      "required": ["ok", "mode", "error", "attempts"],
+      "properties": {
+        "ok": {"const": false},
+        "mode": {"type": "string"},
+        "error": {
+          "type": "object",
+          "required": ["kind", "message", "setup_hint", "exit_code", "stderr_tail"],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "auth",
+                "bad_input",
+                "quota_exhausted",
+                "timeout",
+                "config",
+                "turn_limit",
+                "malformed_output",
+                "general"
+              ]
+            },
+            "message": {"type": "string"},
+            "setup_hint": {"type": "string"},
+            "exit_code": {"type": "integer"},
+            "stderr_tail": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "attempts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attempt"}
+        }
+      },
+      "additionalProperties": true
+    }
+  ],
+  "$defs": {
+    "attempt": {
+      "type": "object",
+      "required": ["model", "exit_code", "duration_ms"],
+      "properties": {
+        "model": {"type": "string"},
+        "exit_code": {"type": "integer"},
+        "duration_ms": {"type": "integer"}
+      },
+      "additionalProperties": true
+    },
+    "stats": {
+      "type": "object",
+      "required": ["input_tokens", "output_tokens", "cached_tokens", "total_tokens"],
+      "properties": {
+        "input_tokens": {"type": "integer"},
+        "output_tokens": {"type": "integer"},
+        "cached_tokens": {"type": "integer"},
+        "total_tokens": {"type": "integer"}
+      },
+      "additionalProperties": true
+    },
+    "toolCall": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string"},
+        "query": {"type": "string"},
+        "url": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,19 @@
+# Policy applied via `--policy` flag. Rules evaluated by priority descending;
+# higher wins. Safety floor: write/shell/MCP always denied.
+
+[[rule]]
+toolName = ["read_file", "read_many_files", "glob", "grep", "list_directory", "google_web_search", "web_fetch"]
+decision = "allow"
+priority = 100
+
+[[rule]]
+toolName = ["run_shell_command", "write_file", "edit", "replace", "save_memory"]
+decision = "deny"
+priority = 500
+denyMessage = "ask-gemini-cli runs Gemini strictly read-only."
+
+[[rule]]
+mcpName = "*"
+decision = "deny"
+priority = 400
+denyMessage = "MCP tools disabled in ask-gemini-cli."

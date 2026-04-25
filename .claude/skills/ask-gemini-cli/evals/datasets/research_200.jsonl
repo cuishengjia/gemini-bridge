@@ -1,0 +1,200 @@
+{"id": "q001", "query": "What is the current latest stable Python release as of April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 3, "notes": "minor point versions rotate monthly"}
+{"id": "q002", "query": "What is the latest LTS release of Node.js as of April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q003", "query": "What TypeScript version was released most recently in April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q004", "query": "What is Anthropic's newest Claude model announced in April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q005", "query": "What is the latest stable React version released in 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q006", "query": "What is the most recent Rust stable release as of April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q007", "query": "What major feature did Next.js ship in its latest release this month?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q008", "query": "What is the latest Ubuntu LTS release after 24.04?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q009", "query": "What's new in the latest Bun runtime release published in April 2026?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q010", "query": "What breaking changes were introduced in the latest Django release this spring?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q011", "query": "Compare the most recent releases of Deno and Bun in 2026 — which shipped more features?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 3, "notes": "cross-source"}
+{"id": "q012", "query": "What changed between the last two PostgreSQL point releases announced recently?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q013", "query": "What's new in the April 2026 Kubernetes release?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q014", "query": "Which AI coding tool released a major update in April 2026, and what was added?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q015", "query": "Compare the most recent GPT release date and Claude release date this month — which came first?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q016", "query": "Has Apple confirmed a Swift 7 ship timeline in the last month? What's the latest status?", "time_sensitivity": "strong", "domain": "tech", "difficulty": 1, "notes": "speculative"}
+{"id": "q017", "query": "What is the USD/JPY exchange rate as of mid-April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q018", "query": "What is Bitcoin's price in USD on April 20, 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q019", "query": "What is the current US Federal funds rate after the April 2026 FOMC meeting?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q020", "query": "What was the S&P 500 closing value on the last trading day before April 20, 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q021", "query": "What is Tesla's stock price as of mid-April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 3, "notes": ""}
+{"id": "q022", "query": "What is the latest US CPI inflation reading (March 2026 data release)?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q023", "query": "What major M&A deal was announced in the tech sector in April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q024", "query": "What is the ECB main refinancing rate as of April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q025", "query": "How has the gold price moved over the past 30 days?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q026", "query": "What tariff changes did the US implement on Chinese goods so far in 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q027", "query": "What's the outlook from the most recent Bank of Japan monetary policy meeting?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q028", "query": "Which major US bank reported Q1 2026 earnings in April — what were the key results?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q029", "query": "What is the status of the US debt ceiling negotiation this spring?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q030", "query": "Which G7 central bank most recently changed rates in April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q031", "query": "Is a US recession priced into the yield curve as of April 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 3, "notes": "forward-looking"}
+{"id": "q032", "query": "Which major currency is the best performer year-to-date in 2026?", "time_sensitivity": "strong", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q033", "query": "What notable peer-reviewed paper was published in Nature in April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q034", "query": "What significant exoplanet discovery was announced this month (April 2026)?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q035", "query": "What clinical trial result was reported in April 2026 for Alzheimer's treatment?", "time_sensitivity": "strong", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q036", "query": "What is the current operational status of the James Webb Space Telescope as of April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q037", "query": "What major CRISPR advance was published in Q1 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q038", "query": "When is the next SpaceX Starship launch scheduled as of April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q039", "query": "What significant earthquake (M6+) occurred in the last 30 days, and what was its magnitude?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q040", "query": "What is the latest H5N1 human case report in the US as of April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q041", "query": "What drug most recently received FDA approval in April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 3, "notes": ""}
+{"id": "q042", "query": "What new advanced material was announced by a top lab in April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q043", "query": "What fusion reactor milestone has been reported so far in 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q044", "query": "What were the findings of the most recent IPCC-linked climate assessment released in 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q045", "query": "Compare the two most recent major exoplanet announcements — which is more significant for habitability?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": "cross-source"}
+{"id": "q046", "query": "Is the ITER fusion project on schedule as of April 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": "speculative"}
+{"id": "q047", "query": "Has any lab claimed room-temperature superconductivity with independent replication in 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 2, "notes": "speculative"}
+{"id": "q048", "query": "What is the confirmed count of moons around Saturn as of 2026?", "time_sensitivity": "strong", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q049", "query": "What iPhone model was most recently released in 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q050", "query": "Which movie topped the US weekend box office in the weekend before April 20, 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q051", "query": "What new gaming console or major handheld launched in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 3, "notes": ""}
+{"id": "q052", "query": "Which popular TV series premiered a new season in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q053", "query": "What major music album was released in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q054", "query": "What is the current top-selling game on Steam in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q055", "query": "Which restaurant earned a new 3rd Michelin star in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q056", "query": "Which travel destination was named best for 2026 by a major publication this month?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q057", "query": "What is the most-watched Netflix show globally in April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q058", "query": "Which smartphone brand had the highest global market share in Q1 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q059", "query": "Which streaming platform added the most net subscribers in Q1 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q060", "query": "What is the best-selling EV model in the US in Q1 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q061", "query": "Compare Apple VisionPro and Meta Quest 3 latest sales updates in 2026 — which leads?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 3, "notes": ""}
+{"id": "q062", "query": "What fashion trend dominated spring 2026 runway shows?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q063", "query": "Has Apple shipped AR glasses by April 2026, and what's the market reception?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": "speculative"}
+{"id": "q064", "query": "How is Tesla's robotaxi rollout progressing as of April 2026?", "time_sensitivity": "strong", "domain": "lifestyle", "difficulty": 1, "notes": "speculative"}
+{"id": "q065", "query": "Who won the Masters golf tournament in April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q066", "query": "Which team leads the NBA Eastern Conference standings as of mid-April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q067", "query": "Who won the F1 Chinese Grand Prix in April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q068", "query": "Which tennis player won the Miami Open 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q069", "query": "Who leads the English Premier League with 4 matches remaining in April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q070", "query": "Which MLB team has the best record as of April 20, 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q071", "query": "Who won the World Figure Skating Championships 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 3, "notes": ""}
+{"id": "q072", "query": "Which boxing title fight took place in April 2026, and who won?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q073", "query": "Which NBA player is leading MVP odds in April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q074", "query": "What is LeBron James's current status (playing or retired) as of April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q075", "query": "Who advanced from the UEFA Champions League quarter-finals in April 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q076", "query": "Which F1 team leads the constructors championship after the first 5 races of 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q077", "query": "What was the attendance record for an NWSL match in early 2026?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q078", "query": "Compare the two most recent NBA MVP frontrunners as of April 2026 — who has the stronger case?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": "cross-source"}
+{"id": "q079", "query": "Can Max Verstappen win a 6th F1 title in 2026 based on the current season pace?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": "speculative"}
+{"id": "q080", "query": "Is Shohei Ohtani pitching regularly in 2026? What is his current injury status?", "time_sensitivity": "strong", "domain": "sports_people", "difficulty": 1, "notes": "speculative"}
+{"id": "q081", "query": "When does Python 3.13 reach end-of-life according to the official schedule?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 3, "notes": ""}
+{"id": "q082", "query": "What major feature did TypeScript 5.7 introduce?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q083", "query": "Which major JavaScript framework adopted signals as a first-class primitive in 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q084", "query": "What Linux kernel version shipped in 2025 with significant io_uring changes?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q085", "query": "What was Anthropic's flagship product launch in 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q086", "query": "What's the rendering-model difference between React 19 and React 18?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q087", "query": "What was the most significant OpenAI developer-facing release of 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q088", "query": "Which programming language rose fastest in the TIOBE index during 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q089", "query": "Did any major US tech company lay off more than 5% of staff in 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q090", "query": "Compare GPT-5 and Claude 4 release dates — which shipped first?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 1, "notes": "cross-source"}
+{"id": "q091", "query": "What is the current state of WebAssembly Garbage Collection adoption across browsers (late 2025 – early 2026)?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 3, "notes": ""}
+{"id": "q092", "query": "How did the GitHub Copilot antitrust or IP case progress in 2025?", "time_sensitivity": "medium", "domain": "tech", "difficulty": 1, "notes": "speculative"}
+{"id": "q093", "query": "What was the US Federal funds rate at the end of 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q094", "query": "Who is the current US Treasury Secretary?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q095", "query": "What was the outcome of the 2024 US presidential election?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q096", "query": "What was Bitcoin's all-time high price in 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q097", "query": "What was the largest US IPO of 2025 by market cap?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q098", "query": "What new sanctions did the EU impose on Russia in 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q099", "query": "How did China's GDP growth evolve across the four quarters of 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q100", "query": "How did the Nikkei 225 perform in 2025 versus 2024?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q101", "query": "What was the verdict in the major US antitrust case against a big-tech firm in 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 3, "notes": ""}
+{"id": "q102", "query": "Which sovereign wealth fund posted the highest 2025 calendar-year return?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": "cross-source"}
+{"id": "q103", "query": "How has AI capex reshaped hyperscaler quarterly earnings during 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 2, "notes": "cross-source"}
+{"id": "q104", "query": "Did any G7 country enter technical recession in 2025?", "time_sensitivity": "medium", "domain": "news_finance", "difficulty": 1, "notes": "speculative"}
+{"id": "q105", "query": "When did NASA's Artemis II mission launch or what is its currently planned date?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q106", "query": "What was the most-cited scientific paper of 2025 according to major citation trackers?", "time_sensitivity": "medium", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q107", "query": "What was the 2025 Nobel Prize in Physiology or Medicine awarded for?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q108", "query": "What was the 2025 Nobel Prize in Physics awarded for?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q109", "query": "Which COVID variant was dominant globally in late 2025?", "time_sensitivity": "medium", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q110", "query": "What progress did Neuralink's human trial make in 2025?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q111", "query": "What is the current status of the SKA (Square Kilometre Array) telescope as of 2026?", "time_sensitivity": "medium", "domain": "science", "difficulty": 3, "notes": ""}
+{"id": "q112", "query": "What protein-design advances did the Baker lab publish in 2025?", "time_sensitivity": "medium", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q113", "query": "What Arctic sea ice change was measured during the 2025 summer melt vs prior years?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": "cross-source"}
+{"id": "q114", "query": "How does the 2025 AMOC slowdown research compare with the previous decade of findings?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": "cross-source"}
+{"id": "q115", "query": "Did any fusion startup reach net-positive energy gain with sustained operation in 2025?", "time_sensitivity": "medium", "domain": "science", "difficulty": 2, "notes": "speculative"}
+{"id": "q116", "query": "Was a long-awaited malaria-eradication milestone reached anywhere in 2025?", "time_sensitivity": "medium", "domain": "science", "difficulty": 1, "notes": "speculative"}
+{"id": "q117", "query": "What was the Oscar Best Picture winner announced in March 2026 (for 2025 films)?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q118", "query": "Which K-pop group dominated the 2025 global charts?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q119", "query": "What was the top-grossing film worldwide in 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q120", "query": "Which video game won Game of the Year 2025 at The Game Awards?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q121", "query": "What was Spotify's most-streamed song of 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 3, "notes": ""}
+{"id": "q122", "query": "What was the best-selling EV brand globally for calendar year 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q123", "query": "Which fashion house had the biggest creative-director change in 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q124", "query": "How did Disney+'s subscriber count change during 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q125", "query": "What is the current Michelin star count for Tokyo in the 2026 guide?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q126", "query": "Did Apple Vision Pro or Meta Quest 3 outsell the other in calendar 2025?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": "cross-source"}
+{"id": "q127", "query": "Compare the 2025 subscriber trajectories of Netflix, Disney+, and HBO/Max — who grew fastest?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 2, "notes": "cross-source"}
+{"id": "q128", "query": "Did any new fast-casual or fast-food chain IPO in 2025 and trade well?", "time_sensitivity": "medium", "domain": "lifestyle", "difficulty": 1, "notes": "speculative"}
+{"id": "q129", "query": "Who won the 2025 NBA Finals?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q130", "query": "Who won the 2025 MLB World Series?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q131", "query": "Who won the 2025 UEFA Champions League final?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 3, "notes": ""}
+{"id": "q132", "query": "Who won the 2025 Formula 1 Drivers Championship?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q133", "query": "Who won the 2025 Wimbledon Men's singles final?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q134", "query": "Which soccer player had the highest transfer fee in summer 2025?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q135", "query": "Who won the 2025 Tour de France?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q136", "query": "Was the men's 100m world record broken during 2025?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q137", "query": "Which NFL team had the longest winning streak during the 2025 season?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q138", "query": "Compare USMNT and Canada's preparation results heading into the 2026 World Cup — who looks stronger?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": "cross-source"}
+{"id": "q139", "query": "Did Japan win any medal at the 2025 World Athletics Championships?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": "cross-source"}
+{"id": "q140", "query": "Will LeBron James's 2024-25 final-season statline age well compared to other older guards?", "time_sensitivity": "medium", "domain": "sports_people", "difficulty": 1, "notes": "speculative"}
+{"id": "q141", "query": "In the Linux kernel on x86-64, what syscall number is assigned to pidfd_send_signal?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 3, "notes": ""}
+{"id": "q142", "query": "What specific environment variable disables telemetry in the .NET 8 runtime?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q143", "query": "Explain the difference between SO_REUSEPORT and SO_REUSEADDR in the Linux socket API.", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q144", "query": "What is the default eviction policy in Redis when maxmemory-policy is not explicitly set?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q145", "query": "What does the SQLAlchemy IDENTIFIER_QUOTE-related config setting control?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q146", "query": "What is the default max_allowed_packet size in a MySQL 8 server, and which variable controls it?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q147", "query": "Compare the WAL designs of SQLite and PostgreSQL — what subtle difference affects concurrent readers?", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 1, "notes": "cross-source"}
+{"id": "q148", "query": "Explain the relationship between Pin<Box<T>> and self-referential async futures in Rust.", "time_sensitivity": "evergreen_obscure", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q149", "query": "What is the purpose of SEC Form 144 in the US securities regime?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q150", "query": "What is the typical lock-up period for a Hong Kong IPO?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q151", "query": "Explain 'Herstatt risk' in foreign-exchange settlement.", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 3, "notes": ""}
+{"id": "q152", "query": "What was the triggering event for the 1997 Thai baht devaluation?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q153", "query": "What is the difference between US TIPS and I Bonds as inflation-protected instruments?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q154", "query": "Why was the LIBOR-to-SOFR transition especially bumpy for CLO tranches?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q155", "query": "Explain the 'snowball effect' in Brazilian government debt dynamics of the 1990s.", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": "cross-source"}
+{"id": "q156", "query": "What is 'widow-and-orphan' stock, and why does the term persist in investor parlance?", "time_sensitivity": "evergreen_obscure", "domain": "news_finance", "difficulty": 1, "notes": "cross-source"}
+{"id": "q157", "query": "What is the approximate wavelength of the Lyman-alpha line of hydrogen?", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q158", "query": "What is the molecular formula of caffeine?", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q159", "query": "Explain why the Hayflick limit is historically significant for understanding cellular aging.", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q160", "query": "What is the Tully-Fisher relation used for in observational astronomy?", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 2, "notes": ""}
+{"id": "q161", "query": "Describe the role of the sodium-potassium pump in neuron action-potential maintenance.", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 3, "notes": ""}
+{"id": "q162", "query": "What distinguishes a prion from a conventional virus?", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q163", "query": "How did the Miller-Urey experiment challenge earlier theories of abiogenesis, and what are its modern critiques?", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 2, "notes": "cross-source"}
+{"id": "q164", "query": "What is epistasis in genetics, and give an example that complicates GWAS interpretation.", "time_sensitivity": "evergreen_obscure", "domain": "science", "difficulty": 1, "notes": "cross-source"}
+{"id": "q165", "query": "Who directed the 1962 film 'The Manchurian Candidate'?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q166", "query": "What is the national dish of Peru?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q167", "query": "Explain the historical difference between a macaron and a macaroon.", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q168", "query": "What is 'wabi-sabi' in Japanese aesthetics, and how does it differ from 'mono no aware'?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q169", "query": "What is the historical origin of the French 75 cocktail?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q170", "query": "Why is haggis traditionally served on Burns Night?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q171", "query": "How did the Slow Food movement originate, and where was its first public event held?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 3, "notes": "cross-source"}
+{"id": "q172", "query": "What is the origin of the term 'Stockholm syndrome', and how has it been critiqued psychologically?", "time_sensitivity": "evergreen_obscure", "domain": "lifestyle", "difficulty": 2, "notes": "cross-source"}
+{"id": "q173", "query": "Who was the first Formula 1 driver to score a championship point for Japan?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q174", "query": "In which year did Pelé score his 1000th career goal?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q175", "query": "Why is Darryl Dawkins famous for breaking NBA backboards, and when did this happen?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q176", "query": "Who held the men's world mile record immediately before Roger Bannister's sub-4-minute run?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q177", "query": "What was the 'Rumble in the Jungle', and why is it culturally significant?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q178", "query": "Who is Fausto Coppi, and why is he considered a cycling legend?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q179", "query": "Compare the Fosbury flop and the straddle technique in high jump — why did the flop supplant the straddle?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": "cross-source"}
+{"id": "q180", "query": "What was unique about Jim Thorpe's 1912 Olympic performance, and why were his medals stripped?", "time_sensitivity": "evergreen_obscure", "domain": "sports_people", "difficulty": 1, "notes": "cross-source"}
+{"id": "q181", "query": "What does HTTP status code 404 mean?", "time_sensitivity": "evergreen_common", "domain": "tech", "difficulty": 3, "notes": ""}
+{"id": "q182", "query": "What is the default port for HTTPS?", "time_sensitivity": "evergreen_common", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q183", "query": "What is the primary difference between TCP and UDP?", "time_sensitivity": "evergreen_common", "domain": "tech", "difficulty": 2, "notes": ""}
+{"id": "q184", "query": "What is Moore's Law?", "time_sensitivity": "evergreen_common", "domain": "tech", "difficulty": 1, "notes": ""}
+{"id": "q185", "query": "What is the official currency of Japan?", "time_sensitivity": "evergreen_common", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q186", "query": "What does the abbreviation GDP stand for?", "time_sensitivity": "evergreen_common", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q187", "query": "What is the fundamental difference between a stock and a bond?", "time_sensitivity": "evergreen_common", "domain": "news_finance", "difficulty": 1, "notes": ""}
+{"id": "q188", "query": "Explain compound interest in one paragraph.", "time_sensitivity": "evergreen_common", "domain": "news_finance", "difficulty": 2, "notes": ""}
+{"id": "q189", "query": "What is the chemical formula for water?", "time_sensitivity": "evergreen_common", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q190", "query": "At what temperature does water boil at sea level in degrees Celsius?", "time_sensitivity": "evergreen_common", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q191", "query": "Why does the daytime sky appear blue?", "time_sensitivity": "evergreen_common", "domain": "science", "difficulty": 3, "notes": ""}
+{"id": "q192", "query": "How many recognized planets are in our solar system, excluding Pluto?", "time_sensitivity": "evergreen_common", "domain": "science", "difficulty": 1, "notes": ""}
+{"id": "q193", "query": "Who painted the Mona Lisa?", "time_sensitivity": "evergreen_common", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q194", "query": "In what year did the RMS Titanic sink?", "time_sensitivity": "evergreen_common", "domain": "lifestyle", "difficulty": 2, "notes": ""}
+{"id": "q195", "query": "Which language has the most native speakers worldwide?", "time_sensitivity": "evergreen_common", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q196", "query": "Why do some cultures bow as a greeting instead of shaking hands?", "time_sensitivity": "evergreen_common", "domain": "lifestyle", "difficulty": 1, "notes": ""}
+{"id": "q197", "query": "How many players are on a soccer team on the field at one time?", "time_sensitivity": "evergreen_common", "domain": "sports_people", "difficulty": 2, "notes": ""}
+{"id": "q198", "query": "Who is Michael Jordan, in one sentence?", "time_sensitivity": "evergreen_common", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q199", "query": "In which year were the first modern Olympic Games held?", "time_sensitivity": "evergreen_common", "domain": "sports_people", "difficulty": 1, "notes": ""}
+{"id": "q200", "query": "Why is the marathon distance 42.195 km?", "time_sensitivity": "evergreen_common", "domain": "sports_people", "difficulty": 1, "notes": ""}

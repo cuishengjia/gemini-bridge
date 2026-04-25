@@ -1,0 +1,10 @@
+{"id":"q001","relevance":5,"citation_quality":4,"hallucination":0,"reasoning":"clear direct answer with reputable sources","judge_model":"claude-opus-4-7"}
+{"id":"q002","relevance":5,"citation_quality":5,"hallucination":0,"reasoning":"comprehensive with multiple authoritative URLs","judge_model":"claude-opus-4-7"}
+{"id":"q003","relevance":4,"citation_quality":3,"hallucination":0,"reasoning":"answered main point, citation quality mixed","judge_model":"claude-opus-4-7"}
+{"id":"q005","relevance":5,"citation_quality":4,"hallucination":0,"reasoning":"thorough coverage with good sources","judge_model":"claude-opus-4-7"}
+{"id":"q011","relevance":4,"citation_quality":4,"hallucination":0,"reasoning":"solid answer","judge_model":"claude-opus-4-7"}
+{"id":"q012","relevance":5,"citation_quality":4,"hallucination":0,"reasoning":"well-sourced","judge_model":"claude-opus-4-7"}
+{"id":"q015","relevance":3,"citation_quality":3,"hallucination":1,"reasoning":"one plausibly-false stat not supported by cited URLs","judge_model":"claude-opus-4-7"}
+{"id":"q020","relevance":5,"citation_quality":5,"hallucination":0,"reasoning":"excellent evergreen answer","judge_model":"claude-opus-4-7"}
+{"id":"q021","relevance":4,"citation_quality":4,"hallucination":0,"reasoning":"good","judge_model":"claude-opus-4-7"}
+{"id":"q026","relevance":5,"citation_quality":3,"hallucination":0,"reasoning":"correct but fewer citations than ideal","judge_model":"claude-opus-4-7"}
