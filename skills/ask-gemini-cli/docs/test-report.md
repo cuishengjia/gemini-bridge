@@ -44,7 +44,7 @@ Code review 第一轮发现的 H1–H5 + M1/M8/M9 共 8 处问题已全部修复
 ============================= test session starts ==============================
 platform darwin -- Python 3.13.9, pytest-8.4.2, pluggy-1.5.0 -- <python>
 cachedir: .pytest_cache
-rootdir: <repo-root>/.claude/skills/ask-gemini-cli
+rootdir: <repo-root>/skills/ask-gemini-cli
 plugins: cov-7.1.0, anyio-4.10.0
 collecting ... collected 191 items
 
@@ -358,14 +358,14 @@ python3 -m pip install --user pytest pytest-cov jsonschema
 ### Reproduce Section 3 (full pytest output)
 
 ```bash
-cd <repo-root>/.claude/skills/ask-gemini-cli
+cd <repo-root>/skills/ask-gemini-cli
 python3 -m pytest tests/ -v
 ```
 
 ### Reproduce Section 4 (coverage)
 
 ```bash
-cd <repo-root>/.claude/skills/ask-gemini-cli
+cd <repo-root>/skills/ask-gemini-cli
 python3 -m pytest tests/ \
   --cov=lib \
   --cov-report=term-missing \
@@ -473,7 +473,7 @@ PY
 
 - **症状**：`lib/invoke.py` 有一个未使用的 `import typing`，以及早期实验残留的 dead code 分支（`_parse_events` 里被 H1 重构后不再可达的 `if is_media_ref` 分支）。
 - **根因**：迭代过程累积的代码债。
-- **修复**：删除死代码与 unused import；`ruff check .claude/skills/ask-gemini-cli` clean。
+- **修复**：删除死代码与 unused import；`ruff check skills/ask-gemini-cli` clean。
 - **回归测试**：`tests/test_invoke.py` 保持 53 用例全绿，`invoke.py` 覆盖率 99%（仅 L107 `_assert_safety` 中 `-o` 为末 token 的防御分支未覆盖，可接受）。
 - **活验证**：lint clean；四轮活调用无行为变化。
 

@@ -19,4 +19,4 @@ htmlcov/
 .claude/settings.local.json
 
 # Skill runtime output (eval runs are reproduced locally; not source)
-.claude/skills/ask-gemini-cli/evals/results/
+skills/ask-gemini-cli/evals/results/

@@ -2,7 +2,7 @@
 
 Until v1 stabilizes, this skill lives at:
 
-    <repo>/.claude/skills/ask-gemini-cli/
+    <repo>/skills/ask-gemini-cli/
 
 After stabilization, migrate to user-global:
 
@@ -11,7 +11,7 @@ After stabilization, migrate to user-global:
 ## Checklist
 
 1. Verify Phase 10 path audit passes (no hardcoded absolute repo paths).
-2. `cp -R <repo>/.claude/skills/ask-gemini-cli ~/.claude/skills/`
+2. `cp -R <repo>/skills/ask-gemini-cli ~/.claude/skills/`
 3. Verify `~/.claude/skills/ask-gemini-cli/bin/ask-gemini` is executable.
 4. Restart Claude Code; confirm `/ask-gemini-cli` is discoverable.
 5. Run live smoke test (see `docs/test-report.md`).

@@ -2,7 +2,7 @@
 
 **决策冻结日期**：2026-04-19
 **Skill 名**：`ask-gemini-cli`
-**开发位置**：`<repo-root>/.claude/skills/ask-gemini-cli/`
+**开发位置**：`<repo-root>/skills/ask-gemini-cli/`
 **迁移目标**：`~/.claude/skills/ask-gemini-cli/`（稳定后）
 **预估工作量**：2–3 工程日
 **参考资料**：`docs/gemini-cli-reference.md`
@@ -43,7 +43,7 @@
 ## 3. 目录结构
 
 ```
-.claude/skills/ask-gemini-cli/
+skills/ask-gemini-cli/
 ├── SKILL.md                         # Claude Code 自动发现 + 触发描述
 ├── README.md                        # 用户文档：setup / auth / 故障排查
 ├── MIGRATION.md                     # 迁移到 ~/.claude/skills/ 检查清单

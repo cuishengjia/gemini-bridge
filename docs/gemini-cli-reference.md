@@ -264,9 +264,9 @@ gemini -p "审查架构" --include-directories /path/to/repo -o json
 - 发现路径：`.gemini/skills/`, `.agents/skills/`（项目）→ `~/.gemini/skills/`, `~/.agents/skills/`（用户）
 - SKILL.md 需 `name` + `description`，激活机制是 `activate_skill` 工具
 - **与 Claude Code skill 的区别**：
-  - Claude Code skill 在 `.claude/skills/<name>/SKILL.md`
+  - Claude Code skill 在 `skills/<name>/SKILL.md`
   - Gemini skill 在 `.gemini/skills/<name>/SKILL.md`
-  - 两个系统独立运行，我们的 `ask-gemini-cli` 是给 **Claude Code** 用的，放 `.claude/skills/`
+  - 两个系统独立运行，我们的 `ask-gemini-cli` 是给 **Claude Code** 用的，放 `skills/`
   - 但可以共用 `.agents/skills/` 跨工具（未来考虑）
 
 ### 8.2 `gemini mcp`, `gemini extensions`, `gemini hooks`

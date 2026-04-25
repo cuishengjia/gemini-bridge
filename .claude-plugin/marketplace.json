@@ -1,0 +1,18 @@
+{
+  "name": "gemini-bridge",
+  "owner": {
+    "name": "cuishengjia",
+    "url": "https://github.com/cuishengjia"
+  },
+  "metadata": {
+    "description": "Bridge Claude Code to Google's Gemini CLI for analyze / research / second-opinion / multimodal",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gemini-bridge",
+      "source": ".",
+      "description": "Read-only bridge: analyze (1M tokens), research (Google-grounded), second-opinion (blind), multimodal (image/PDF)"
+    }
+  ]
+}

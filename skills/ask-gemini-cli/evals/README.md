@@ -70,7 +70,7 @@ evals/
 ## 使用（建议顺序）
 
 ```bash
-cd .claude/skills/ask-gemini-cli
+cd skills/ask-gemini-cli
 
 # 1. 健康检查（确认 ask-gemini 可跑、OAuth 有效）
 ./bin/ask-gemini --mode research --query "what year is it?"

@@ -1,0 +1,21 @@
+{
+  "name": "gemini-bridge",
+  "description": "Read-only bridge from Claude Code to Google's Gemini CLI. Adds 4 capabilities Claude can't do natively: 1M-token codebase analysis, Google-grounded research with URL citations, blind cross-model second-opinion review, and image/PDF/video frame analysis. Hardened with multi-layer read-only enforcement and zero third-party Python dependencies.",
+  "version": "1.0.0",
+  "author": {
+    "name": "cuishengjia",
+    "url": "https://github.com/cuishengjia"
+  },
+  "homepage": "https://github.com/cuishengjia/gemini-bridge",
+  "repository": "https://github.com/cuishengjia/gemini-bridge",
+  "license": "MIT",
+  "keywords": [
+    "gemini",
+    "google",
+    "research",
+    "codebase-analysis",
+    "second-opinion",
+    "multimodal",
+    "read-only"
+  ]
+}
