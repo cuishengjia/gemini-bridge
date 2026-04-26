@@ -16,22 +16,22 @@ Blind independent critique by a different model lineage (Gemini), no shared reas
 
 ## Invocation
 
-The wrapper is at `bin/ask-gemini` inside this plugin's installed directory.
-Claude Code typically exports `$CLAUDE_PLUGIN_ROOT`; if that variable is empty
-in your shell (some Claude Code versions don't propagate it to Bash tool
-calls), the binary lives at
-`~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini`.
+The wrapper is `bin/ask-gemini` inside the installed plugin directory.
+Claude Code lays the plugin out at one of:
+`~/.claude/plugins/marketplaces/gemini-bridge/bin/ask-gemini` (when the
+plugin was installed from a git source whose URL matches the marketplace),
+or `~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini` (when
+installed as a separate clone). Use this single-shot `find` to resolve
+the binary regardless of layout, so the first call always succeeds without
+needing a `$CLAUDE_PLUGIN_ROOT` retry:
 
 ```bash
-"$CLAUDE_PLUGIN_ROOT/bin/ask-gemini" \
+"$(find ~/.claude/plugins -path '*gemini-bridge*/bin/ask-gemini' -type f -executable 2>/dev/null | head -1)" \
   --mode second-opinion \
   --task "<problem statement, NOT solution>" \
   --artefact-file "<path to plan/diff/doc>" \
   [--persist-to "<path>.md"]
 ```
-
-If `$CLAUDE_PLUGIN_ROOT` is not set, locate the script by listing
-`~/.claude/plugins/cache/gemini-bridge/` and use the absolute path directly.
 
 The wrapper reads `--artefact-file` and embeds it in the prompt verbatim. The `--task` field is what tells Gemini what problem the artefact tries to solve.
 
