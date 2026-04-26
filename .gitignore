@@ -23,5 +23,7 @@ evals/results/
 
 # Local working / scratch files
 message.md
+testrun.md
+*-suggestion.md
 *.tmp.md
 .release-notes-*.md

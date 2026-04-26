@@ -16,6 +16,12 @@ Read-only web research with Google Search grounding via Gemini CLI.
 
 ## Invocation
 
+The wrapper is at `bin/ask-gemini` inside this plugin's installed directory.
+Claude Code typically exports `$CLAUDE_PLUGIN_ROOT`; if that variable is empty
+in your shell (some Claude Code versions don't propagate it to Bash tool
+calls), the binary lives at
+`~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini`.
+
 ```bash
 "$CLAUDE_PLUGIN_ROOT/bin/ask-gemini" \
   --mode research \
@@ -23,6 +29,9 @@ Read-only web research with Google Search grounding via Gemini CLI.
   [--target-dir "<absolute path>"] \
   [--persist-to "<path>.md"]
 ```
+
+If `$CLAUDE_PLUGIN_ROOT` is not set, locate the script by listing
+`~/.claude/plugins/cache/gemini-bridge/` and use the absolute path directly.
 
 `--query` is the only required argument. `--target-dir` is optional — pass it when the research question is grounded in a specific codebase (e.g., "what's the latest version of X that's compatible with this project?"). `--persist-to` (optional, must end in `.md`, must resolve under `$HOME` or `$CWD`) saves the response for later reuse.
 

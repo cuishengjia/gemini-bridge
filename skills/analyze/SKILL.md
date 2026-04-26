@@ -16,6 +16,12 @@ Read-only codebase analysis powered by Google Gemini CLI's 1M+ token window.
 
 ## Invocation
 
+The wrapper is at `bin/ask-gemini` inside this plugin's installed directory.
+Claude Code typically exports `$CLAUDE_PLUGIN_ROOT`; if that variable is empty
+in your shell (some Claude Code versions don't propagate it to Bash tool
+calls), the binary lives at
+`~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini`.
+
 ```bash
 "$CLAUDE_PLUGIN_ROOT/bin/ask-gemini" \
   --mode analyze \
@@ -23,6 +29,9 @@ Read-only codebase analysis powered by Google Gemini CLI's 1M+ token window.
   --prompt "<what to analyze>" \
   [--persist-to "<path>.md"]
 ```
+
+If `$CLAUDE_PLUGIN_ROOT` is not set, locate the script by listing
+`~/.claude/plugins/cache/gemini-bridge/` and use the absolute path directly.
 
 `--target-dir` must be an absolute path to an existing directory. The first time a directory is used, the wrapper auto-adds it to `~/.gemini/trustedFolders.json` (a one-time setup; surfaced as `auto_trusted` in `warnings[]`).
 

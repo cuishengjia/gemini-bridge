@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import subprocess
 import time
 from dataclasses import dataclass
@@ -96,10 +97,33 @@ def policy_path() -> Path:
 
 
 def gemini_bin() -> str:
-    raw = os.environ.get("GEMINI_BIN", DEFAULT_GEMINI_BIN)
+    """Resolve the Gemini CLI binary path.
+
+    Resolution order:
+      1. `GEMINI_BIN` environment variable, if set (highest priority).
+      2. `shutil.which("gemini")` — picks up gemini installed via npm,
+         apt, brew on Linux, nvm, or anywhere on $PATH. Fixes the v1.1.5
+         issue where Linux/Intel-Mac users had to set GEMINI_BIN manually
+         because the hardcoded macOS Apple-Silicon Homebrew path didn't
+         exist on their system.
+      3. `DEFAULT_GEMINI_BIN` (`/opt/homebrew/bin/gemini`) — kept as a
+         backwards-compatible fallback for macOS Apple-Silicon users
+         whose `gemini` is symlinked there but not necessarily on $PATH
+         in non-interactive shells (e.g., subprocess invocations).
+    """
+    explicit = os.environ.get("GEMINI_BIN")
+    if explicit:
+        if os.environ.get("ASK_GEMINI_BIN_UNRESTRICTED") == "1":
+            return explicit
+        return _validate_bin_path(explicit)
+    on_path = shutil.which("gemini")
+    if on_path:
+        if os.environ.get("ASK_GEMINI_BIN_UNRESTRICTED") == "1":
+            return on_path
+        return _validate_bin_path(on_path)
     if os.environ.get("ASK_GEMINI_BIN_UNRESTRICTED") == "1":
-        return raw
-    return _validate_bin_path(raw)
+        return DEFAULT_GEMINI_BIN
+    return _validate_bin_path(DEFAULT_GEMINI_BIN)
 
 
 def _validate_bin_path(bin_path: str) -> str:

@@ -99,7 +99,27 @@ def _default_gemini_bin() -> str:
 
 
 def _check_binary() -> Optional[PreflightResult]:
-    bin_path = os.environ.get("GEMINI_BIN", _default_gemini_bin())
+    # Use invoke.gemini_bin() so preflight and build_argv agree on the
+    # resolution order (env var -> $PATH -> hardcoded default). Without
+    # this, preflight would fail on Linux/Intel-Mac systems before the
+    # subprocess even tries to run, even though shutil.which() in
+    # invoke.gemini_bin() would have found a valid binary.
+    try:
+        import invoke  # type: ignore
+    except ImportError:
+        from lib import invoke  # type: ignore
+    try:
+        bin_path = invoke.gemini_bin()
+    except invoke.SafetyAssertionError as e:
+        return PreflightResult(
+            ok=False,
+            error_kind="config",
+            error_message=str(e),
+            setup_hint=(
+                "Set GEMINI_BIN to a valid path, or install Gemini CLI on "
+                "$PATH (e.g., `npm i -g @google/gemini-cli`)."
+            ),
+        )
     p = Path(bin_path)
     if not (p.is_file() and os.access(str(p), os.X_OK)):
         return PreflightResult(
@@ -109,7 +129,10 @@ def _check_binary() -> Optional[PreflightResult]:
             setup_hint=(
                 "Install Gemini CLI: "
                 "https://geminicli.com/docs/get-started/installation "
-                "or set GEMINI_BIN."
+                "or set GEMINI_BIN. The wrapper auto-detects gemini on "
+                "$PATH; if your shell sees `gemini --version` working, "
+                "make sure the same PATH is exported to non-interactive "
+                "subprocesses."
             ),
         )
     return None

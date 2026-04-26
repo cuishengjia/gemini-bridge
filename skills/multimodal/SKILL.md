@@ -16,6 +16,12 @@ Image / PDF / video frame analysis via Gemini CLI's multimodal capabilities.
 
 ## Invocation
 
+The wrapper is at `bin/ask-gemini` inside this plugin's installed directory.
+Claude Code typically exports `$CLAUDE_PLUGIN_ROOT`; if that variable is empty
+in your shell (some Claude Code versions don't propagate it to Bash tool
+calls), the binary lives at
+`~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini`.
+
 ```bash
 # Image (PNG, JPEG, WebP, etc.)
 "$CLAUDE_PLUGIN_ROOT/bin/ask-gemini" \
@@ -31,6 +37,9 @@ Image / PDF / video frame analysis via Gemini CLI's multimodal capabilities.
   --prompt "<what to analyze>" \
   [--persist-to "<path>.md"]
 ```
+
+If `$CLAUDE_PLUGIN_ROOT` is not set, locate the script by listing
+`~/.claude/plugins/cache/gemini-bridge/` and use the absolute path directly.
 
 Pass exactly **one** of `--image` or `--pdf` (not both). The wrapper:
 1. Embeds the file via Gemini's `@<absolute_path>` reference syntax inside the prompt

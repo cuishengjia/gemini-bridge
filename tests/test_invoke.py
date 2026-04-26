@@ -447,14 +447,43 @@ def test_prepare_env_no_gcp_set_is_noop(monkeypatch):
 # gemini_bin / skill_dir / policy_path
 # ----------------------------------------------------------------------
 
-def test_gemini_bin_default(monkeypatch):
+def test_gemini_bin_default_when_neither_env_nor_path(monkeypatch):
+    """No GEMINI_BIN, no `gemini` on $PATH → falls back to DEFAULT_GEMINI_BIN."""
     monkeypatch.delenv("GEMINI_BIN", raising=False)
+    monkeypatch.setattr(inv.shutil, "which", lambda _name: None)
+    # DEFAULT path is rejected by validate (it's `/opt/homebrew/...` which is
+    # not in dangerous prefixes), so this should pass through.
     assert inv.gemini_bin() == inv.DEFAULT_GEMINI_BIN
 
 
-def test_gemini_bin_override(monkeypatch):
+def test_gemini_bin_uses_path_lookup_when_no_env(monkeypatch):
+    """No GEMINI_BIN, but `gemini` on $PATH → use PATH-resolved binary.
+
+    This is the fix for v1.1.6: Linux/Intel-Mac users with `gemini`
+    installed via npm/apt/nvm at non-Homebrew paths shouldn't have to
+    set GEMINI_BIN manually.
+    """
+    monkeypatch.delenv("GEMINI_BIN", raising=False)
+    monkeypatch.setattr(
+        inv.shutil, "which", lambda name: "/home/u/.nvm/versions/node/v24/bin/gemini"
+    )
+    assert inv.gemini_bin() == "/home/u/.nvm/versions/node/v24/bin/gemini"
+
+
+def test_gemini_bin_env_overrides_path_lookup(monkeypatch):
+    """Explicit GEMINI_BIN takes priority over $PATH lookup."""
     monkeypatch.setenv("GEMINI_BIN", "/custom/path/gemini")
+    monkeypatch.setattr(inv.shutil, "which", lambda _name: "/usr/local/bin/gemini")
     assert inv.gemini_bin() == "/custom/path/gemini"
+
+
+def test_gemini_bin_path_lookup_still_screened_for_world_writable(monkeypatch):
+    """Even when shutil.which finds a binary, /tmp/* is still rejected."""
+    monkeypatch.delenv("GEMINI_BIN", raising=False)
+    monkeypatch.delenv("ASK_GEMINI_BIN_UNRESTRICTED", raising=False)
+    monkeypatch.setattr(inv.shutil, "which", lambda _name: "/tmp/evil/gemini")
+    with pytest.raises(inv.SafetyAssertionError):
+        inv.gemini_bin()
 
 
 def test_skill_dir_is_directory_with_policies():

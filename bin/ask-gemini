@@ -19,7 +19,7 @@ SKILL_DIR = Path(__file__).resolve().parent.parent
 if str(SKILL_DIR) not in sys.path:
     sys.path.insert(0, str(SKILL_DIR))
 
-from lib import audit_log, envelope, fallback, persist, preflight  # noqa: E402
+from lib import audit_log, citations, envelope, fallback, persist, preflight  # noqa: E402
 
 
 PROMPTS_DIR = SKILL_DIR / "prompts"
@@ -262,6 +262,18 @@ def main(argv: Optional[list[str]] = None) -> int:
     chain = fallback.run_with_fallback(prompt=prompt, include_dir=target_dir)
 
     if chain.success:
+        # Resolve Gemini's vertexaisearch.cloud.google.com/grounding-api-redirect/...
+        # citation URLs to their final destinations BEFORE both persist and
+        # envelope serialization, so the user-visible response and any
+        # cross-session-cached `.md` file both contain real source domains
+        # (Bloomberg, Reuters, etc.) instead of opaque redirect tokens.
+        resolved_count = 0
+        if chain.parsed and chain.parsed.response:
+            new_response, resolved_count = citations.resolve_grounding_urls(
+                chain.parsed.response
+            )
+            chain.parsed.response = new_response
+
         persisted: Optional[str] = None
         if args.persist_to and chain.parsed:
             try:
@@ -282,6 +294,8 @@ def main(argv: Optional[list[str]] = None) -> int:
                 return 2
         warnings_list = list(pre.warnings or [])
         warnings_list.extend(_quality_warnings(args.mode, chain))
+        if resolved_count > 0:
+            warnings_list.append(f"resolved_{resolved_count}_grounding_urls")
         env = envelope.build_success(
             mode=args.mode, chain_result=chain,
             persisted_to=persisted,

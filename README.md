@@ -30,6 +30,8 @@
 
 > **没有以上任何一项，plugin 装上也用不了。** Claude Code 是 Plugin 宿主；Gemini CLI 是被桥接的对象——两边都要装好且认证通过。
 
+**关于 `gemini` 路径自动探测（v1.1.6+）**：plugin 用 `shutil.which("gemini")` 自动从 `$PATH` 找 `gemini`，所以 Linux / Intel Mac / npm 全局安装的用户**无需**手动设 `GEMINI_BIN`。只有当 `gemini` 不在 `$PATH` 上时才需要 `export GEMINI_BIN=<path>`。
+
 ---
 
 ## 安装

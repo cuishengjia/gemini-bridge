@@ -16,6 +16,12 @@ Blind independent critique by a different model lineage (Gemini), no shared reas
 
 ## Invocation
 
+The wrapper is at `bin/ask-gemini` inside this plugin's installed directory.
+Claude Code typically exports `$CLAUDE_PLUGIN_ROOT`; if that variable is empty
+in your shell (some Claude Code versions don't propagate it to Bash tool
+calls), the binary lives at
+`~/.claude/plugins/cache/gemini-bridge/<version>/bin/ask-gemini`.
+
 ```bash
 "$CLAUDE_PLUGIN_ROOT/bin/ask-gemini" \
   --mode second-opinion \
@@ -23,6 +29,9 @@ Blind independent critique by a different model lineage (Gemini), no shared reas
   --artefact-file "<path to plan/diff/doc>" \
   [--persist-to "<path>.md"]
 ```
+
+If `$CLAUDE_PLUGIN_ROOT` is not set, locate the script by listing
+`~/.claude/plugins/cache/gemini-bridge/` and use the absolute path directly.
 
 The wrapper reads `--artefact-file` and embeds it in the prompt verbatim. The `--task` field is what tells Gemini what problem the artefact tries to solve.
 
